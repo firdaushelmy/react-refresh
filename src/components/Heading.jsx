@@ -20,12 +20,10 @@ function Heading() {
     headingColor.color = 'blue';
   }
   return (
-    <div>
-      <h1 className='heading' style={headingColor}>
-        {greetingMessage}
-        {` ${fName} ${lName} !`}
-      </h1>
-    </div>
+    <h1 className='heading' style={headingColor}>
+      {greetingMessage}
+      {` ${fName} ${lName} !`}
+    </h1>
   )
 }
 
