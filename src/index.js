@@ -5,19 +5,26 @@ const fName = 'firdaus';
 const lName = 'helmy';
 const currentHour = new Date().getHours();
 
-function greetingMessage() {
-  if (currentHour < 12) {
-    return <h1 style={{ color: 'red' }}>Good Morning {fName + ' ' + lName}</h1>
-  } if (currentHour >= 12 && currentHour <= 18) {
-    return <h1 style={{ color: 'green' }}>Good Afternoon {fName + ' ' + lName}</h1>
-  } if (currentHour > 18 && currentHour < 24) {
-    return <h1 style={{ color: 'blue' }}>Good Evening {fName + ' ' + lName}</h1>
-  }
+let greetingMessage = '';
+const headingColor = {
+  color: ""
+};
+
+if (currentHour < 12) {
+  greetingMessage = 'Good Morning';
+  headingColor.color = 'red';
+} if (currentHour >= 12 && currentHour <= 18) {
+  greetingMessage = 'Good Afternoon';
+  headingColor.color = 'green';
+} if (currentHour > 18 && currentHour < 24) {
+  greetingMessage = 'Good Afternoon';
+  headingColor.color = 'blue';
 }
+
 
 ReactDOM.render(
   <div>
-    {greetingMessage()}
+    <h1 className='heading' style={headingColor}>{greetingMessage} {fName} {lName} !</h1>
   </div>,
   document.getElementById('root')
 );
