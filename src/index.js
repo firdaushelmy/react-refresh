@@ -3,16 +3,21 @@ import ReactDOM from 'react-dom';
 
 const fName = 'firdaus';
 const lName = 'helmy';
-const newYear = new Date().getFullYear();
+const currentHour = new Date().getHours();
+
+function greetingMessage() {
+  if (currentHour < 12) {
+    return <h1 style={{ color: 'red' }}>Good Morning {fName + ' ' + lName}</h1>
+  } if (currentHour >= 12 && currentHour <= 18) {
+    return <h1 style={{ color: 'green' }}>Good Afternoon {fName + ' ' + lName}</h1>
+  } if (currentHour > 18 && currentHour < 24) {
+    return <h1 style={{ color: 'blue' }}>Good Evening {fName + ' ' + lName}</h1>
+  }
+}
 
 ReactDOM.render(
   <div>
-    <p>Created by {fName + ' ' + lName}</p>
-    <p>Copyright {newYear}</p>
-    <h1>My favourite Drink</h1>
-    <img className='food-img' alt='teh ais' src='https://i.pinimg.com/originals/c6/3d/7e/c63d7ecf7c62fd4cdd079699cfb818de.jpg' />
-    <img className='food-img' alt='kopi ais' src='https://www.ecomall.my/image/cache/data/product-32046/kopi%20ais-800x800.jpg' />
-    <img className='food-img' alt='nescafe ais' src='https://www.daily-groceries.com/wp-content/uploads/2019/09/nescafe-ais-1.jpg' />
+    {greetingMessage()}
   </div>,
   document.getElementById('root')
 );
